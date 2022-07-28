@@ -10,7 +10,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  CONSTRAINT uc_user UNIQUE (id, email)
+  CONSTRAINT uc_user UNIQUE (id, name, email)
 ) ENGINE=InnoDB;
 
 CREATE TABLE `lists` (
