@@ -10,7 +10,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  CONSTRAINT uc_user UNIQUE (name, email)
+  CONSTRAINT uc_user UNIQUE (`name`, email)
 ) ENGINE=InnoDB;
 
 -- one to many relationships with users
@@ -21,7 +21,7 @@ CREATE TABLE `lists` (
   `date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(id),
-  CONSTRAINT uc_user_list UNIQUE (user_id, name)
+  CONSTRAINT uc_user_list UNIQUE (user_id, `name`)
 ) ENGINE=InnoDB;
 
 -- one to many relationships with lists
@@ -34,7 +34,7 @@ CREATE TABLE `listItems` (
   `date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   CONSTRAINT fk_list_id FOREIGN KEY (list_id) REFERENCES lists(id),
-  CONSTRAINT uc_list_item UNIQUE (list_id, name)
+  CONSTRAINT uc_list_item UNIQUE (list_id, `name`)
 ) ENGINE=InnoDB;
 
 -- one to many relationships with listItems
